@@ -1,0 +1,199 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: black;
+}
+
+#bomb-grid{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    width: 1100px;
+    height: 750px;
+    background-color: rgb(238, 229, 229);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.grid-box{
+    width: 300px;
+    height: 300px;
+    margin: auto;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+
+#timer-set{
+
+}
+
+#timer-set h2{
+    background-color: black;
+    /* border: 5px solid grey; */
+    color: red;
+    font-family: "Segment7Standard";
+    margin: 20px;
+    height: 75px;
+    font-size: 60px;
+    text-align: center;
+    padding-top: 20px;
+    box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+}
+
+#timer-set p{
+    background-color: black;
+    /* border: 2.5px solid grey; */
+    width: 110px;
+    height: 110px;
+    color: red;
+    font-size: 95px;
+    text-align: center;
+    box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+}
+
+#strike1{
+    position: absolute;
+    top: 190px;
+    margin-left: 20px;
+}
+
+#strike2{
+    position: absolute;
+    top: 190px;
+    margin-left: 170px;
+}
+
+.button-puzzle{
+    width: 275px;
+    height: 275px;
+    margin: 12.5px;
+}
+
+#big-button{
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    border: none;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    font-size: 40px;
+    font-weight: bold;
+    background-color: red;
+}
+
+#big-button:hover{
+    cursor: pointer;
+}
+
+.correct-button{
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    background-color: black;
+    border: 5px solid rgb(58, 57, 57);
+}
+
+.button-puzzle .correct-button{
+    position: relative;
+    bottom: 375px;
+    left: 230px;
+}
+
+.arrow-button{
+    background-color: transparent;
+    border: none;
+    font-size: 80px;
+
+}
+
+#up-arrow{
+    transform: rotate(180deg);
+    position: relative;
+    bottom: 270px;
+    left: 117px;
+}
+
+#down-arrow{
+    position: relative;
+    bottom: 100px;
+    left: 75px
+}
+
+.arrow-button:hover{
+    cursor: pointer;
+}
+
+.wire-puzzle{
+    width: 100%;
+    height: 100%;
+}
+
+.wire-set{
+    margin: 35px auto;
+    height: 200px;
+    width: 200px;
+}
+
+#wire-bar1{
+    position: relative;
+    bottom: 252.5px;
+    left: 10px;
+    width: 40px;
+    height: 220px;
+    background-color: rgb(58, 58, 58);
+}
+
+#wire-bar2{
+    position: relative;
+    bottom: 472.5px;
+    left: 250px;
+    width: 40px;
+    height: 220px;
+    background-color: rgb(58, 58, 58);
+}
+
+#wire1{
+    background-color: red;
+}
+
+#wire2{
+    background-color: rgb(255, 238, 0);
+}
+
+#wire3{
+    background-color: blue;
+}
+
+#wire4{
+    background-color: green;
+}
+
+.wire{
+    width: 200px;
+    height: 25px;
+    margin: 25px 0;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    /* box-shadow: rgba(121, 121, 121, 0.144) 0px 30px 60px -12px inset, rgba(59, 58, 58, 0.39) 0px 18px 36px -18px inset; */
+}
+
+.wire:hover{
+    cursor: pointer;
+}
+
+.correct-bar{
+    width: 200px;
+    height: 30px;
+    background-color: rgb(0, 0, 0);
+    border: 3px solid rgb(87, 86, 86);
+    position: absolute;
+    top: 290px;
+    left: 79px;
+    box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+}
