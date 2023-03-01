@@ -7,6 +7,10 @@ body{
     background-color: black;
 }
 
+button:hover{
+    cursor: pointer;
+}
+
 #bomb-grid{
     display: flex;
     flex-direction: row;
@@ -27,10 +31,6 @@ body{
     height: 300px;
     margin: auto;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
-}
-
-#timer-set{
-
 }
 
 #timer-set h2{
@@ -83,11 +83,19 @@ body{
     box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
     font-size: 40px;
     font-weight: bold;
+    color: white;
+}
+
+.red{
     background-color: red;
 }
 
-#big-button:hover{
-    cursor: pointer;
+.white{
+    background-color: rgb(194, 197, 197);
+}
+
+.blue{
+    background-color: rgb(0, 119, 255);
 }
 
 .correct-button{
@@ -157,30 +165,69 @@ body{
     background-color: rgb(58, 58, 58);
 }
 
-#wire1{
+.wire-red{
     background-color: red;
 }
 
-#wire2{
+.wire-yellow{
     background-color: rgb(255, 238, 0);
 }
 
-#wire3{
+.wire-blue{
     background-color: blue;
 }
 
-#wire4{
+.wire-green{
     background-color: green;
 }
 
-.wire{
+.wire-white{
+    background-color: rgb(194, 197, 197);
+}
+
+/* .wire{
     width: 200px;
     height: 25px;
     margin: 25px 0;
     border-top: 1px solid black;
     border-bottom: 1px solid black;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-    /* box-shadow: rgba(121, 121, 121, 0.144) 0px 30px 60px -12px inset, rgba(59, 58, 58, 0.39) 0px 18px 36px -18px inset; */
+} */
+
+#wire1{
+    width: 200px;
+    height: 25px;
+    margin: 25px 0;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+#wire2{
+    width: 200px;
+    height: 25px;
+    margin: 25px 0;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+#wire3{
+    width: 200px;
+    height: 25px;
+    margin: 25px 0;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+#wire4{
+    width: 200px;
+    height: 25px;
+    margin: 25px 0;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 
 .wire:hover{
@@ -196,4 +243,149 @@ body{
     top: 290px;
     left: 79px;
     box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+}
+
+#hex-set h3{
+    width: 250px;
+    height: 50px;
+    background-color: black;
+    margin: 10px 25px;
+    font-size: 37px;
+    padding: 25px 0;
+    color: white;
+    text-align: center;
+    box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+    font-family: monospace;
+}
+
+.hex-input{
+    width: 230px;
+    height: 75px;
+    background-color: black;
+    border: none;
+    margin: 0 35px;
+    text-align: center;
+    font-size: 25px;
+    box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+    color: white;
+}
+
+.hex-input::placeholder{
+    color: white
+}
+
+.hex-button{
+    width: 200px;
+    height: 45px;
+    margin: 10px 50px 0 50px;
+    font-size: 25px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    background-color: rgb(160, 158, 158);
+    border: none;
+}
+
+.hex-button:hover{
+    cursor: pointer;
+}
+
+.hex-correct-bar{
+    width: 280px;
+    height: 15px;
+    background-color: rgb(0, 0, 0);
+    border: 2px solid rgb(87, 86, 86);
+    box-shadow: rgb(204, 219, 232) 2px 2px 4px 0px inset, rgba(255, 255, 255, 0.5) -2px -2px 4px 1px inset;
+    margin: 25px 8px;
+}
+
+#two-digit-set h3{
+    width: 250px;
+    height: 50px;
+    background-color: black;
+    margin: 10px 25px;
+    font-size: 45px;
+    padding: 25px 0;
+    color: white;
+    text-align: center;
+    box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+    font-family: monospace;
+}
+
+.two-digit-input{
+    width: 230px;
+    height: 75px;
+    background-color: black;
+    border: none;
+    margin: 0 35px;
+    text-align: center;
+    font-size: 25px;
+    box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+    color: white;
+}
+
+.two-digit-input::placeholder{
+    color: white
+}
+
+.two-digit-button{
+    width: 200px;
+    height: 45px;
+    margin: 10px 50px 0 50px;
+    font-size: 25px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    background-color: rgb(160, 158, 158);
+    border: none;
+}
+
+.two-digit-correct-bar{
+    width: 280px;
+    height: 15px;
+    background-color: rgb(0, 0, 0);
+    border: 2px solid rgb(87, 86, 86);
+    box-shadow: rgb(204, 219, 232) 2px 2px 4px 0px inset, rgba(255, 255, 255, 0.5) -2px -2px 4px 1px inset;
+    margin: 25px 8px;
+}
+
+#binary-set{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#binary-correct-bar{
+    width: 280px;
+    height: 25px;
+    background-color: rgb(4, 250, 4);
+    margin: 5px 10px;
+    box-shadow: rgb(49, 49, 49) 3px 3px 6px 0px inset, rgba(54, 54, 54, 0.5) -3px -3px 6px 1px inset;
+}
+
+.binary-bar{
+    width: 25px;
+    height: 180px;
+    margin: 8.9px;
+}
+
+.bar-white{
+    background-color: white;
+    box-shadow: rgb(204, 219, 232) 2px 2px 4px 0px inset, rgba(255, 255, 255, 0.5) -2px -2px 4px 1px inset;
+}
+
+.bar-black{
+    background-color: black;
+    box-shadow: rgb(204, 219, 232) 2px 2px 4px 0px inset, rgba(255, 255, 255, 0.5) -2px -2px 4px 1px inset;
+}
+
+.binary-button{ 
+    width: 125px;
+    height: 50px;
+    margin: 10px 12px;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+#binary-button-red{
+    background-color: red;
+}
+
+#binary-button-green{
+    background-color: rgb(0, 255, 0);
 }
