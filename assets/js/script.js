@@ -8,6 +8,8 @@ let wire2 = $("#wire2")
 let wire3 = $("#wire3")
 let wire4 = $("#wire4")
 var hexAnswer;
+let binaryCounter = 0;
+$("#button-click").prop("volume", 0.25)
 
 function randomize(){
 
@@ -75,6 +77,17 @@ let chosenLength;
 
     hexAnswer = `${hexArr1[hexDigit1]}${hexArr1[hexDigit2]}${hexArr1[hexDigit3]}${hexArr1[hexDigit4]}`
     console.log(hexAnswer)
+
+    for(let i = 1; i < 8; i++){
+        let randomBinary = Math.floor(Math.random() * 2)
+
+        if(randomBinary == 0){
+            $(`#binary-bar${i}`).addClass("bar-black")
+        }
+        if(randomBinary == 1){
+            $(`#binary-bar${i}`).addClass("bar-white")
+        }
+    }
 
 }
 
@@ -164,13 +177,83 @@ function hexPuzzle(answer){
     }
 }
 
+function binaryPuzzle(){
+
+    let binary1 = $("#binary-bar1").attr("class").split(" ")[1]
+    let binary2 = $("#binary-bar2").attr("class").split(" ")[1]
+    let binary3 = $("#binary-bar3").attr("class").split(" ")[1]
+    let binary4 = $("#binary-bar4").attr("class").split(" ")[1]
+    let binary5 = $("#binary-bar5").attr("class").split(" ")[1]
+    let binary6 = $("#binary-bar6").attr("class").split(" ")[1]
+    let binary7 = $("#binary-bar7").attr("class").split(" ")[1]
+    let blackCount = 0;
+    let whiteCount = 0;
+
+    for(let i = 1; i < 8; i++){
+
+        if($(`#binary-bar${i}`).hasClass("bar-black")){
+            blackCount++
+            console.log(`Black: ${blackCount}`)
+        } else if($(`#binary-bar${i}`).hasClass("bar-white")){
+            whiteCount++
+            console.log(`White: ${whiteCount}`)
+        }
+
+    }
+
+    if((binary1 == "bar-black" && binary2 == "bar-black" && binary3 == "bar-black" && binary4 == "bar-black" && binary5 == "bar-black" && binary6 == "bar-black" && binary7 == "bar-black") && binaryCounter == 1){
+        $("#binary-correct-bar").css("background-color", "rgb(4, 250, 4)")
+        return;
+    }
+    if((binary2 == "bar-white" && binary7 == "bar-black") && binaryCounter == 2){
+        $("#binary-correct-bar").css("background-color", "rgb(4, 250, 4)")
+        return;
+    }
+    if((binary1 == "bar-white" && binary2 == "bar-white") && binaryCounter == 3){
+        $("#binary-correct-bar").css("background-color", "rgb(4, 250, 4)")
+        return;  
+    }
+    if((binary1 == "bar-black" && binary7 == "bar-black") && binaryCounter == 4){
+        $("#binary-correct-bar").css("background-color", "rgb(4, 250, 4)")  
+        return;
+    }
+    if((binary1 == "bar-white" && binary2 == "bar-white" && binary3 == "bar-white") && binaryCounter == 5){
+        $("#binary-correct-bar").css("background-color", "rgb(4, 250, 4)")  
+        return;
+    }
+    if((binary1 == "bar-white" && binary2 == "bar-white" && binary3 == "bar-white" && binary4 == "bar-white") && binaryCounter == 6){
+        $("#binary-correct-bar").css("background-color", "rgb(4, 250, 4)") 
+        return; 
+    }
+    if(blackCount > 3 && binaryCounter == 7){
+        $("#binary-correct-bar").css("background-color", "rgb(4, 250, 4)")
+        return; 
+    }
+    if(whiteCount > 5 && binaryCounter == 8){
+        $("#binary-correct-bar").css("background-color", "rgb(4, 250, 4)") 
+        return;
+    }
+    if(whiteCount == 7 && binaryCounter == 9){
+        $("#binary-correct-bar").css("background-color", "rgb(4, 250, 4)")
+        return;  
+    }
+    if(binaryCounter == 10){
+        $("#binary-correct-bar").css("background-color", "rgb(4, 250, 4)") 
+        return;  
+    }
+    $("#binary-correct-bar").css("background-color", "red")
+    $("#wrong-buzzer")[0].play()
+    binaryCounter = 0;
+}
 
 $("#big-button").on("click", () => {
     console.log(`multiplier: ${multiplier}`)
+    $("#button-click")[0].play()
     return multiplier += 1
 })
 
 $("#up-arrow").on("click", () => {
+    $("#button-click")[0].play()
     if(multiplier === 3 || multiplier === 4){
         let color = $("#big-button").attr("class")
         let text = $("#big-button").html()
@@ -183,6 +266,7 @@ $("#up-arrow").on("click", () => {
 })
 
 $("#down-arrow").on("click", () => {
+    $("#button-click")[0].play()
     if(multiplier < 3){
         let color = $("#big-button").attr("class")
         let text = $("#big-button").html()
@@ -201,9 +285,20 @@ $(".wire").on("click", function() {
 })
 
 $(".hex-button").on("click", () => {
+    $("#button-click")[0].play()
     var hexResponse = $(".hex-input").val()
 
     hexPuzzle(hexResponse)
+})
+
+$("#binary-button-red").on("click", function(){
+    $("#button-click")[0].play()
+    return ++binaryCounter;
+})
+
+$("#binary-button-green").on("click", () => {
+    $("#button-click")[0].play()
+    binaryPuzzle()
 })
 
 randomize()

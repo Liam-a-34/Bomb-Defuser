@@ -26,7 +26,7 @@
         </div>
         <div class="grid-box" id="timer-box">
             <div id="timer-set">
-                <h2>00:00</h2>
+                <h2 id="clock">00:00</h2>
                 <p id="strike1"></a>
                 <p id="strike2"></a>
             </div>
@@ -50,13 +50,13 @@
         <div class="grid-box" id="grid5">
             <div id="binary-set">
                 <p id="binary-correct-bar"></p>
-                <p class="binary-bar bar-white" id="binary-bar1"></p>
-                <p class="binary-bar bar-black" id="binary-bar2"></p>
-                <p class="binary-bar bar-white" id="binary-bar3"></p>
-                <p class="binary-bar bar-black" id="binary-bar4"></p>
-                <p class="binary-bar bar-black" id="binary-bar5"></p>
-                <p class="binary-bar bar-white" id="binary-bar6"></p>
-                <p class="binary-bar bar-white" id="binary-bar7"></p>
+                <p class="binary-bar" id="binary-bar1"></p>
+                <p class="binary-bar" id="binary-bar2"></p>
+                <p class="binary-bar" id="binary-bar3"></p>
+                <p class="binary-bar" id="binary-bar4"></p>
+                <p class="binary-bar" id="binary-bar5"></p>
+                <p class="binary-bar" id="binary-bar6"></p>
+                <p class="binary-bar" id="binary-bar7"></p>
                 <button class="binary-button" id="binary-button-red"></button>
                 <button class="binary-button" id="binary-button-green"></button>
             </div>
@@ -71,6 +71,7 @@
         </div>
     </div>
     <audio id="wrong-buzzer" src="./assets/audio/buzzer-wrong-answer.wav"></audio>
+    <audio id="button-click" src="./assets/audio/Button-click-sound.wav"></audio>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" ></script>
     <script src="./assets/js/script.js"></script>
     

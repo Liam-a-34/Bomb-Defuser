@@ -353,9 +353,9 @@ button:hover{
 #binary-correct-bar{
     width: 280px;
     height: 25px;
-    background-color: rgb(4, 250, 4);
+    background-color: black;
     margin: 5px 10px;
-    box-shadow: rgb(49, 49, 49) 3px 3px 6px 0px inset, rgba(54, 54, 54, 0.5) -3px -3px 6px 1px inset;
+    box-shadow: rgb(204, 219, 232) 2px 2px 4px 0px inset, rgba(255, 255, 255, 0.5) -2px -2px 4px 1px inset;
 }
 
 .binary-bar{
