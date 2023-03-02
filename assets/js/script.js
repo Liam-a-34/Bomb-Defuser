@@ -10,6 +10,41 @@ let wire4 = $("#wire4")
 var hexAnswer;
 let binaryCounter = 0;
 $("#button-click").prop("volume", 0.25)
+let letterArr = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"]
+let numberArr = [1, 3, 7, 2, 4, 5, 6, 0, 8, 9]
+let letter1;
+let letter2;
+let letter3;
+let letter4;
+let number1;
+let number2;
+let number3;
+let number4;
+let mathAnswer;
+let mathString;
+let seconds = 300
+var speed = 1000;
+
+
+let timer = setInterval(function(){
+
+    let minutes = Math.floor(seconds / 60);
+    let extraSeconds = seconds % 60;
+    minutes = minutes < 10 ? "0" + minutes : minutes;
+    extraSeconds = extraSeconds< 10 ? "0" + extraSeconds : extraSeconds;
+
+    seconds -= 1
+
+    $("#clock").html(`${minutes}:${extraSeconds}`)
+
+    if(seconds == 0){
+        
+        $("#clock").html(`00:00`)
+        clearInterval(timer)
+    }
+
+}, speed)
+
 
 function randomize(){
 
@@ -89,6 +124,34 @@ let chosenLength;
         }
     }
 
+    for(let i = 1; i < 5; i++){
+
+        let randomNumber = Math.floor(Math.random() * 10)
+
+        if(i == 1){
+            letter1 = letterArr[randomNumber]
+            number1 = numberArr[randomNumber]
+        }
+        if(i == 2){
+            letter2 = letterArr[randomNumber]
+            number2 = numberArr[randomNumber]
+        }
+        if(i == 3){
+            letter3 = letterArr[randomNumber]
+            number3 = numberArr[randomNumber]
+        }
+        if(i == 4){
+            letter4 = letterArr[randomNumber]
+            number4 = numberArr[randomNumber]
+        }
+    }
+
+    mathString = `${letter1}${letter2} ${letter3}${letter4}`
+
+    $("#mathText").html(mathString)
+
+    console.log()
+
 }
 
 function buttonPuzzle(color, text, count){
@@ -116,6 +179,14 @@ function buttonPuzzle(color, text, count){
 
     $(".correct-button").css("background-color", "red")
     $("#wrong-buzzer")[0].play()
+    strikes += 1
+    if(strikes == 1){
+        $("#strike1").html("X")
+        speed == 500
+    } else if(strikes == 2){
+        $("#strike2").html("X")
+        speed == 250
+    }
     return multiplier = 0;
 
 }
@@ -142,6 +213,14 @@ function wirePuzzle(chosenWire){
         }
         $(".correct-bar").css("background-color", "red")
         $("#wrong-buzzer")[0].play()
+            strikes += 1
+        if(strikes == 1){
+            $("#strike1").html("X")
+            speed = 500
+        } else if(strikes == 2){
+            $("#strike2").html("X")
+            speed = 250
+    }
     }
     if($(".wire-set").children().length == 4){
         if((color1 != "wire-green" && color2 != "wire-green" && color3 != "wire-green" && color4 != "wire-green") && chosenWire == "wire1"){
@@ -162,6 +241,14 @@ function wirePuzzle(chosenWire){
         }
         $(".correct-bar").css("background-color", "red")
         $("#wrong-buzzer")[0].play()
+        strikes += 1
+    if(strikes == 1){
+        $("#strike1").html("X")
+            speed = 500
+    } else if(strikes == 2){
+        $("#strike2").html("X")
+            speed = 250
+    }
     }
 
 
@@ -174,6 +261,14 @@ function hexPuzzle(answer){
     } else {
         $(".hex-correct-bar").css("background-color", "red")
         $("#wrong-buzzer")[0].play()
+        strikes += 1
+    if(strikes == 1){
+        $("#strike1").html("X")
+            speed = 500
+    } else if(strikes == 2){
+        $("#strike2").html("X")
+            speed = 250
+    }
     }
 }
 
@@ -243,8 +338,48 @@ function binaryPuzzle(){
     }
     $("#binary-correct-bar").css("background-color", "red")
     $("#wrong-buzzer")[0].play()
+    strikes += 1
+    if(strikes == 1){
+        $("#strike1").html("X")
+            speed = 500
+    } else if(strikes == 2){
+        $("#strike2").html("X")
+            speed = 250
+    }
     binaryCounter = 0;
 }
+
+function mathPuzzle(){
+
+    let firstSet = `${number1}${number2}`
+    let secondSet = `${number3}${number4}`
+
+    console.log(firstSet)
+    console.log(secondSet)
+
+    let firstParse = parseInt(firstSet)
+    let secondParse = parseInt(secondSet)
+
+    mathAnswer = firstParse *= secondParse
+
+    console.log(mathAnswer)
+    
+    if($(".two-digit-input").val() == mathAnswer){
+        $(".two-digit-correct-bar").css("background-color", "rgb(4, 250, 4)")
+        return;
+    }
+    $(".two-digit-correct-bar").css("background-color", "red")
+    $("#wrong-buzzer")[0].play()
+    strikes += 1
+    if(strikes == 1){
+        $("#strike1").html("X")
+            speed = 500
+    } else if(strikes == 2){
+        $("#strike2").html("X")
+            speed = 250
+    }
+}
+
 
 $("#big-button").on("click", () => {
     console.log(`multiplier: ${multiplier}`)
@@ -261,6 +396,14 @@ $("#up-arrow").on("click", () => {
     } else {
         $(".correct-button").css("background-color", "red")
         $("#wrong-buzzer")[0].play()
+        strikes += 1
+    if(strikes == 1){
+        $("#strike1").html("X")
+            speed = 500
+    } else if(strikes == 2){
+        $("#strike2").html("X")
+            speed = 250
+    }
         return multiplier = 0;
     }
 })
@@ -274,6 +417,12 @@ $("#down-arrow").on("click", () => {
     } else {
         $(".correct-button").css("background-color", "red")
         $("#wrong-buzzer")[0].play()
+        strikes += 1
+    if(strikes == 1){
+        $("#strike1").html("X")
+    } else if(strikes == 2){
+        $("#strike2").html("X")
+    }
         return multiplier = 0;
     }
 })
@@ -300,5 +449,7 @@ $("#binary-button-green").on("click", () => {
     $("#button-click")[0].play()
     binaryPuzzle()
 })
+$(".two-digit-button").on("click", mathPuzzle)
+
 
 randomize()
