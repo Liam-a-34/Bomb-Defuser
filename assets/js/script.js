@@ -171,7 +171,24 @@ function timer(speed) {
             timer(speed);
         }, speed);
         console.log(strikes);
+    } else if (strikes === 3){
+        return death();
     }
+}
+
+function death(){
+
+    $("#death-sound")[0].play()
+
+    $("#death-screen").css("display", "flex")
+    clearInterval(slowtimer)
+
+    setTimeout(function(){
+
+        window.location.assign("/index.html")
+
+    },10000)
+
 }
 
 

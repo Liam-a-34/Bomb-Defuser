@@ -3,7 +3,7 @@
     padding: 0;
 }
 
-body{
+#main-body{
     background-image: url("../images/bomb-png.PNG");
     background-size: cover;
 }
@@ -47,4 +47,111 @@ body{
 
 #main-page button:hover{
     cursor: pointer;
+}
+
+#manual-main{
+    background-color: black;
+}
+
+.manual-page{
+    display: inline-block;
+    margin: 0 25%;
+    width: 950px;
+    background-color: #f1d592;
+    margin-top: 150px;
+    border-radius: 0 20px 20px 20px;
+}
+
+.manual-page img{
+   margin: 35px 68px;
+   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.manual-button{
+    width: 150px;
+    height: 50px;
+    background-color: #f1d592;
+    position: absolute;
+    top: 100px;
+    border: none;
+    font-size: 20px;
+}
+
+.manual-button:hover{
+    cursor: pointer
+}
+
+#button1{
+    left: 476px;
+    border-radius: 20px 20px 0 0;
+    z-index: 5;
+    -webkit-box-shadow: 10px -9px 12px 0px rgba(0,0,0,0.23);
+    -moz-box-shadow: 10px -9px 12px 0px rgba(0,0,0,0.23);
+    box-shadow: 10px -9px 12px 0px rgba(0,0,0,0.23);
+}
+
+#button2{
+    left: 606px;
+    border-radius: 20px 20px 0 0;
+    background-color: #af9967;
+    z-index: 4;
+    -webkit-box-shadow: 10px -9px 12px 0px rgba(0,0,0,0.23);
+    -moz-box-shadow: 10px -9px 12px 0px rgba(0,0,0,0.23);
+    box-shadow: 10px -9px 12px 0px rgba(0,0,0,0.23);
+}
+
+#button3{
+    left: 736px;
+    border-radius: 20px 20px 0 0;
+    background-color: #af9967;
+    z-index: 3;
+    -webkit-box-shadow: 10px -9px 12px 0px rgba(0,0,0,0.23);
+    -moz-box-shadow: 10px -9px 12px 0px rgba(0,0,0,0.23);
+    box-shadow: 10px -9px 12px 0px rgba(0,0,0,0.23);
+}
+
+#button4{
+    left: 866px;
+    border-radius: 20px 20px 0 0;
+    background-color: #af9967;
+    z-index: 2;
+    -webkit-box-shadow: 10px -9px 12px 0px rgba(0,0,0,0.23);
+    -moz-box-shadow: 10px -9px 12px 0px rgba(0,0,0,0.23);
+    box-shadow: 10px -9px 12px 0px rgba(0,0,0,0.23);
+}
+
+#button5{
+    left: 996px;
+    border-radius: 20px 20px 0 0;
+    background-color: #af9967;
+    z-index: 1;
+    -webkit-box-shadow: 10px -9px 12px 0px rgba(0,0,0,0.23);
+    -moz-box-shadow: 10px -9px 12px 0px rgba(0,0,0,0.23);
+    box-shadow: 10px -9px 12px 0px rgba(0,0,0,0.23);
+    
+}
+
+#manual-back-button{
+    left: 1126px;
+    border-radius: 20px 20px 0 0;
+    background-color: #af9967;
+    z-index: 0;
+    -webkit-box-shadow: 10px -9px 12px 0px rgba(0,0,0,0.23);
+    -moz-box-shadow: 10px -9px 12px 0px rgba(0,0,0,0.23);
+    box-shadow: 10px -9px 12px 0px rgba(0,0,0,0.23); 
+}
+
+#death-screen{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.76);
+    z-index: 6;
+}
+
+#death-screen h1{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 }
