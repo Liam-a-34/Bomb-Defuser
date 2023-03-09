@@ -185,7 +185,7 @@ function death(){
 
     setTimeout(function(){
 
-        window.location.assign("/index.html")
+        location.assign("./index.html")
 
     },10000)
 

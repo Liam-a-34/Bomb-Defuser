@@ -1,15 +1,15 @@
 
 
 $("#play-button").on("click", function(){
-    window.location.assign("/bomb.html")
+    location.assign("./bomb.html")
 })
 
 $("#manual-button").on("click", function(){
-    window.location.assign("/manual.html")
+    location.assign("./manual.html")
 })
 
 $("#manual-back-button").on("click", function(){
-    window.location.assign("/index.html")
+    location.assign("./index.html")
 })
 
 $("#button1").on("click", function(){
