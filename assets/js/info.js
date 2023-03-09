@@ -26,7 +26,7 @@ $("#button1").on("click", function(){
 
     $(this).css("background-color", "#f1d592")
     $(this).css("z-index", "6")
-    $("#manual-image").attr("src", "/wires-manual.PNG")
+    $("#manual-image").attr("src", "./assets/images/wires-manual.PNG")
 })
 
 $("#button2").on("click", function(){
@@ -43,7 +43,7 @@ $("#button2").on("click", function(){
 
     $(this).css("background-color", "#f1d592")
     $(this).css("z-index", "6")
-    $("#manual-image").attr("src", "/button-manual.PNG")
+    $("#manual-image").attr("src", "./assets/images/button-manual.PNG")
 })
 
 $("#button3").on("click", function(){
@@ -60,7 +60,7 @@ $("#button3").on("click", function(){
 
     $(this).css("background-color", "#f1d592")
     $(this).css("z-index", "6")
-    $("#manual-image").attr("src", "/hex-manual.PNG")
+    $("#manual-image").attr("src", "./assets/images/hex-manual.PNG")
 })
 
 $("#button4").on("click", function(){
@@ -77,7 +77,7 @@ $("#button4").on("click", function(){
 
     $(this).css("background-color", "#f1d592")
     $(this).css("z-index", "6")
-    $("#manual-image").attr("src", "/binary-manual.PNG")
+    $("#manual-image").attr("src", "./assets/images/binary-manual.PNG")
 })
 
 $("#button5").on("click", function(){
@@ -94,5 +94,5 @@ $("#button5").on("click", function(){
 
     $(this).css("background-color", "#f1d592")
     $(this).css("z-index", "6")
-    $("#manual-image").attr("src", "/math-manual.PNG")
+    $("#manual-image").attr("src", "./assets/images/math-manual.PNG")
 })
