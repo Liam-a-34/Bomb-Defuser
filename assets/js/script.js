@@ -23,28 +23,6 @@ let number4;
 let mathAnswer;
 let mathString;
 let seconds = 300
-var speed = 1000;
-
-
-let timer = setInterval(function(){
-
-    let minutes = Math.floor(seconds / 60);
-    let extraSeconds = seconds % 60;
-    minutes = minutes < 10 ? "0" + minutes : minutes;
-    extraSeconds = extraSeconds< 10 ? "0" + extraSeconds : extraSeconds;
-
-    seconds -= 1
-
-    $("#clock").html(`${minutes}:${extraSeconds}`)
-
-    if(seconds == 0){
-        
-        $("#clock").html(`00:00`)
-        clearInterval(timer)
-    }
-
-}, speed)
-
 
 function randomize(){
 
@@ -154,6 +132,80 @@ let chosenLength;
 
 }
 
+slowtimer()
+
+function slowtimer(){
+    let slowtimer = setInterval(function(){
+
+        let minutes = Math.floor(seconds / 60);
+        let extraSeconds = seconds % 60;
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        extraSeconds = extraSeconds< 10 ? "0" + extraSeconds : extraSeconds;
+    
+        seconds -= 1
+    
+        $("#clock").html(`${minutes}:${extraSeconds}`)
+        console.log(`Slow timer: ${seconds}`)
+    
+        if(seconds <= 0){
+            
+            $("#clock").html(`00:00`)
+            clearInterval(slowtimer)
+            clearInterval(medtimer)
+            clearInterval(fasttimer)
+        }
+    
+    }, 1000)
+}
+
+function medtimer(){
+    let medtimer = setInterval(function(){
+
+        let minutes = Math.floor(seconds / 60);
+        let extraSeconds = seconds % 60;
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        extraSeconds = extraSeconds< 10 ? "0" + extraSeconds : extraSeconds;
+    
+        seconds -= 1
+    
+        $("#clock").html(`${minutes}:${extraSeconds}`)
+        console.log(`Medium timer: ${seconds}`)
+    
+        if(seconds <= 0){
+            
+            $("#clock").html(`00:00`)
+            clearInterval(slowtimer)
+            clearInterval(medtimer)
+            clearInterval(fasttimer)
+        }
+    
+    }, 500)
+}
+function fasttimer(){
+    let fasttimer = setInterval(function(){
+
+        let minutes = Math.floor(seconds / 60);
+        let extraSeconds = seconds % 60;
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        extraSeconds = extraSeconds< 10 ? "0" + extraSeconds : extraSeconds;
+    
+        seconds -= 1
+    
+        $("#clock").html(`${minutes}:${extraSeconds}`)
+        console.log(`Fast timer: ${seconds}`)
+    
+        if(seconds <= 0){
+            
+            $("#clock").html(`00:00`)
+            clearInterval(slowtimer)
+            clearInterval(medtimer)
+            clearInterval(fasttimer)
+        }
+    
+    }, 250)
+}
+
+
 function buttonPuzzle(color, text, count){
 
     if(color == "blue" && text == "Detonate" && count == 1){
@@ -179,13 +231,19 @@ function buttonPuzzle(color, text, count){
 
     $(".correct-button").css("background-color", "red")
     $("#wrong-buzzer")[0].play()
-    strikes += 1
-    if(strikes == 1){
+    ++strikes
+    if(strikes === 1){
         $("#strike1").html("X")
-        speed == 500
-    } else if(strikes == 2){
+        clearInterval(slowtimer)
+        clearInterval(medtimer)
+        clearInterval(fasttimer)
+        medtimer();
+    } else if(strikes === 2){
         $("#strike2").html("X")
-        speed == 250
+        clearInterval(slowtimer)
+        clearInterval(medtimer)
+        clearInterval(fasttimer)
+        fasttimer();
     }
     return multiplier = 0;
 
@@ -213,14 +271,20 @@ function wirePuzzle(chosenWire){
         }
         $(".correct-bar").css("background-color", "red")
         $("#wrong-buzzer")[0].play()
-            strikes += 1
-        if(strikes == 1){
+        ++strikes
+        if(strikes === 1){
             $("#strike1").html("X")
-            speed = 500
-        } else if(strikes == 2){
+            clearInterval(slowtimer)
+            clearInterval(medtimer)
+            clearInterval(fasttimer)
+            medtimer();
+        } else if(strikes === 2){
             $("#strike2").html("X")
-            speed = 250
-    }
+            clearInterval(slowtimer)
+            clearInterval(medtimer)
+            clearInterval(fasttimer)
+            fasttimer();
+        }
     }
     if($(".wire-set").children().length == 4){
         if((color1 != "wire-green" && color2 != "wire-green" && color3 != "wire-green" && color4 != "wire-green") && chosenWire == "wire1"){
@@ -241,13 +305,19 @@ function wirePuzzle(chosenWire){
         }
         $(".correct-bar").css("background-color", "red")
         $("#wrong-buzzer")[0].play()
-        strikes += 1
-    if(strikes == 1){
+        ++strikes
+    if(strikes === 1){
         $("#strike1").html("X")
-            speed = 500
-    } else if(strikes == 2){
+        clearInterval(slowtimer)
+        clearInterval(medtimer)
+        clearInterval(fasttimer)
+        medtimer();
+    } else if(strikes === 2){
         $("#strike2").html("X")
-            speed = 250
+        clearInterval(slowtimer)
+        clearInterval(medtimer)
+        clearInterval(fasttimer)
+        fasttimer();
     }
     }
 
@@ -261,13 +331,19 @@ function hexPuzzle(answer){
     } else {
         $(".hex-correct-bar").css("background-color", "red")
         $("#wrong-buzzer")[0].play()
-        strikes += 1
-    if(strikes == 1){
+        ++strikes
+    if(strikes === 1){
         $("#strike1").html("X")
-            speed = 500
-    } else if(strikes == 2){
+        clearInterval(slowtimer)
+        clearInterval(medtimer)
+        clearInterval(fasttimer)
+        medtimer();
+    } else if(strikes === 2){
         $("#strike2").html("X")
-            speed = 250
+        clearInterval(slowtimer)
+        clearInterval(medtimer)
+        clearInterval(fasttimer)
+        fasttimer();
     }
     }
 }
@@ -338,13 +414,19 @@ function binaryPuzzle(){
     }
     $("#binary-correct-bar").css("background-color", "red")
     $("#wrong-buzzer")[0].play()
-    strikes += 1
-    if(strikes == 1){
+    ++strikes
+    if(strikes === 1){
         $("#strike1").html("X")
-            speed = 500
-    } else if(strikes == 2){
+        clearInterval(slowtimer)
+        clearInterval(medtimer)
+        clearInterval(fasttimer)
+        medtimer();
+    } else if(strikes === 2){
         $("#strike2").html("X")
-            speed = 250
+        clearInterval(slowtimer)
+        clearInterval(medtimer)
+        clearInterval(fasttimer)
+        fasttimer();
     }
     binaryCounter = 0;
 }
@@ -370,15 +452,23 @@ function mathPuzzle(){
     }
     $(".two-digit-correct-bar").css("background-color", "red")
     $("#wrong-buzzer")[0].play()
-    strikes += 1
-    if(strikes == 1){
+    ++strikes
+    if(strikes === 1){
         $("#strike1").html("X")
-            speed = 500
-    } else if(strikes == 2){
+        clearInterval(slowtimer)
+        clearInterval(medtimer)
+        clearInterval(fasttimer)
+        medtimer();
+    } else if(strikes === 2){
         $("#strike2").html("X")
-            speed = 250
+        clearInterval(slowtimer)
+        clearInterval(medtimer)
+        clearInterval(fasttimer)
+        fasttimer();
     }
 }
+
+
 
 
 $("#big-button").on("click", () => {
@@ -396,13 +486,19 @@ $("#up-arrow").on("click", () => {
     } else {
         $(".correct-button").css("background-color", "red")
         $("#wrong-buzzer")[0].play()
-        strikes += 1
-    if(strikes == 1){
+        ++strikes
+    if(strikes === 1){
         $("#strike1").html("X")
-            speed = 500
-    } else if(strikes == 2){
+        clearInterval(slowtimer)
+        clearInterval(medtimer)
+        clearInterval(fasttimer)
+        medtimer();
+    } else if(strikes === 2){
         $("#strike2").html("X")
-            speed = 250
+        clearInterval(slowtimer)
+        clearInterval(medtimer)
+        clearInterval(fasttimer)
+        fasttimer();
     }
         return multiplier = 0;
     }
@@ -417,11 +513,19 @@ $("#down-arrow").on("click", () => {
     } else {
         $(".correct-button").css("background-color", "red")
         $("#wrong-buzzer")[0].play()
-        strikes += 1
-    if(strikes == 1){
+        ++strikes
+    if(strikes === 1){
         $("#strike1").html("X")
-    } else if(strikes == 2){
+        clearInterval(slowtimer)
+        clearInterval(medtimer)
+        clearInterval(fasttimer)
+        medtimer();
+    } else if(strikes === 2){
         $("#strike2").html("X")
+        clearInterval(slowtimer)
+        clearInterval(medtimer)
+        clearInterval(fasttimer)
+        fasttimer();
     }
         return multiplier = 0;
     }
@@ -450,6 +554,5 @@ $("#binary-button-green").on("click", () => {
     binaryPuzzle()
 })
 $(".two-digit-button").on("click", mathPuzzle)
-
 
 randomize()
