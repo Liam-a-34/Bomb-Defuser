@@ -157,6 +157,14 @@ function timer(speed) {
         return;
     }
 
+    if($(".correct-button").hasClass("Correct") && $(".correct-bar").hasClass("Correct") && $(".hex-correct-bar").hasClass("Correct") && $("#binary-correct-bar").hasClass("Correct") && $(".two-digit-correct-bar").hasClass("Correct")){
+        clearInterval(slowtimer)
+        $("#defused-screen").css("display", "flex");
+        setTimeout(function(){
+            location.assign("./index.html")
+        },5000)
+    }
+
     if (strikes === 1) {
         clearInterval(slowtimer);
         speed = 500;
@@ -196,21 +204,25 @@ function buttonPuzzle(color, text, count){
 
     if(color == "blue" && text == "Detonate" && count == 1){
         $(".correct-button").css("background-color", "rgb(4, 250, 4)")
+        $(".correct-button").addClass("Correct")
         console.log("Correct")
         return;
     }
     if(color == "red" && count == 2){
         $(".correct-button").css("background-color", "rgb(4, 250, 4)")
+        $(".correct-button").addClass("Correct")
         console.log("Correct")
         return;
     }
     if(text == "Abort" && count == 3){
         $(".correct-button").css("background-color", "rgb(4, 250, 4)")
+        $(".correct-button").addClass("Correct")
         console.log("Correct")
         return;
     }
     if(color == "white" && count == 4){
         $(".correct-button").css("background-color", "rgb(4, 250, 4)")
+        $(".correct-button").addClass("Correct")
         console.log("Correct")
         return;
     } 
@@ -237,14 +249,17 @@ function wirePuzzle(chosenWire){
     if($(".wire-set").children().length == 3){
         if((color1 != "wire-red" && color2 != "wire-red" && color3 != "wire-red") && chosenWire == "wire1"){
             $(".correct-bar").css("background-color", "rgb(4, 250, 4)")
+            $(".correct-bar").addClass("Correct")
             return;
         }
         if((color1 == "wire-white" || color2 == "wire-white" || color3 == "wire-white") && chosenWire == "wire2"){
             $(".correct-bar").css("background-color", "rgb(4, 250, 4)")
+            $(".correct-bar").addClass("Correct")
             return;
         }
         if((color1 == "wire-blue" || color2 == "wire-blue" || color3 == "wire-blue")){
             $(".correct-bar").css("background-color", "rgb(4, 250, 4)")
+            $(".correct-bar").addClass("Correct")
             return;
         }
         $(".correct-bar").css("background-color", "red")
@@ -259,18 +274,22 @@ function wirePuzzle(chosenWire){
     if($(".wire-set").children().length == 4){
         if((color1 != "wire-green" && color2 != "wire-green" && color3 != "wire-green" && color4 != "wire-green") && chosenWire == "wire1"){
             $(".correct-bar").css("background-color", "rgb(4, 250, 4)")
+            $(".correct-bar").addClass("Correct")
             return;
         }
         if((color1 != "wire-blue" && color2 != "wire-blue" && color3 != "wire-blue" && color4 != "wire-blue") && chosenWire == "wire2"){
             $(".correct-bar").css("background-color", "rgb(4, 250, 4)")
+            $(".correct-bar").addClass("Correct")
             return;
         }
         if((color1 != "wire-white" && color2 != "wire-white" && color3 != "wire-white" && color4 != "wire-white") && chosenWire == "wire3"){
             $(".correct-bar").css("background-color", "rgb(4, 250, 4)")
+            $(".correct-bar").addClass("Correct")
             return;
         }
         if(chosenWire == "wire4"){
             $(".correct-bar").css("background-color", "rgb(4, 250, 4)")
+            $(".correct-bar").addClass("Correct")
             return;
         }
         $(".correct-bar").css("background-color", "red")
@@ -287,8 +306,9 @@ function wirePuzzle(chosenWire){
 }
 
 function hexPuzzle(answer){
-    if(answer == hexAnswer){
+    if(answer == hexAnswer.toLowerCase()){
         $(".hex-correct-bar").css("background-color", "rgb(4, 250, 4)")
+        $(".hex-correct-bar").addClass("Correct")
             return;
     } else {
         $(".hex-correct-bar").css("background-color", "red")
@@ -328,42 +348,52 @@ function binaryPuzzle(){
 
     if((binary1 == "bar-black" && binary2 == "bar-black" && binary3 == "bar-black" && binary4 == "bar-black" && binary5 == "bar-black" && binary6 == "bar-black" && binary7 == "bar-black") && binaryCounter == 1){
         $("#binary-correct-bar").css("background-color", "rgb(4, 250, 4)")
+        $("#binary-correct-bar").addClass("Correct")
         return;
     }
     if((binary2 == "bar-white" && binary7 == "bar-black") && binaryCounter == 2){
         $("#binary-correct-bar").css("background-color", "rgb(4, 250, 4)")
+        $("#binary-correct-bar").addClass("Correct")
         return;
     }
     if((binary1 == "bar-white" && binary2 == "bar-white") && binaryCounter == 3){
         $("#binary-correct-bar").css("background-color", "rgb(4, 250, 4)")
+        $("#binary-correct-bar").addClass("Correct")
         return;  
     }
     if((binary1 == "bar-black" && binary7 == "bar-black") && binaryCounter == 4){
-        $("#binary-correct-bar").css("background-color", "rgb(4, 250, 4)")  
+        $("#binary-correct-bar").css("background-color", "rgb(4, 250, 4)")
+        $("#binary-correct-bar").addClass("Correct")  
         return;
     }
     if((binary1 == "bar-white" && binary2 == "bar-white" && binary3 == "bar-white") && binaryCounter == 5){
-        $("#binary-correct-bar").css("background-color", "rgb(4, 250, 4)")  
+        $("#binary-correct-bar").css("background-color", "rgb(4, 250, 4)")
+        $("#binary-correct-bar").addClass("Correct")  
         return;
     }
     if((binary1 == "bar-white" && binary2 == "bar-white" && binary3 == "bar-white" && binary4 == "bar-white") && binaryCounter == 6){
-        $("#binary-correct-bar").css("background-color", "rgb(4, 250, 4)") 
+        $("#binary-correct-bar").css("background-color", "rgb(4, 250, 4)")
+        $("#binary-correct-bar").addClass("Correct") 
         return; 
     }
     if(blackCount > 3 && binaryCounter == 7){
         $("#binary-correct-bar").css("background-color", "rgb(4, 250, 4)")
+        $("#binary-correct-bar").addClass("Correct")
         return; 
     }
     if(whiteCount > 5 && binaryCounter == 8){
-        $("#binary-correct-bar").css("background-color", "rgb(4, 250, 4)") 
+        $("#binary-correct-bar").css("background-color", "rgb(4, 250, 4)")
+        $("#binary-correct-bar").addClass("Correct") 
         return;
     }
     if(whiteCount == 7 && binaryCounter == 9){
         $("#binary-correct-bar").css("background-color", "rgb(4, 250, 4)")
+        $("#binary-correct-bar").addClass("Correct")
         return;  
     }
     if(binaryCounter == 10){
-        $("#binary-correct-bar").css("background-color", "rgb(4, 250, 4)") 
+        $("#binary-correct-bar").css("background-color", "rgb(4, 250, 4)")
+        $("#binary-correct-bar").addClass("Correct") 
         return;  
     }
     $("#binary-correct-bar").css("background-color", "red")
@@ -394,6 +424,7 @@ function mathPuzzle(){
     
     if($(".two-digit-input").val() == mathAnswer){
         $(".two-digit-correct-bar").css("background-color", "rgb(4, 250, 4)")
+        $(".two-digit-correct-bar").addClass("Correct")
         return;
     }
     $(".two-digit-correct-bar").css("background-color", "red")

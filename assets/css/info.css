@@ -141,17 +141,3 @@
     box-shadow: 10px -9px 12px 0px rgba(0,0,0,0.23); 
 }
 
-#death-screen{
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.76);
-    z-index: 6;
-}
-
-#death-screen h1{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-}
